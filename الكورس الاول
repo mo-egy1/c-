@@ -1,1 +1,318 @@
+using System;
+using System.Transactions;
 
+namespace كورس_1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {    //عملية حسابية==================================================================================================
+            /* double x, y, r;
+             Console.Write(" enter the frist namper ");
+             Console.Write("\n x: ");
+
+
+             x = Convert.ToDouble(Console.ReadLine());
+             Console.Write(" y: ");
+             y = Convert.ToDouble(Console.ReadLine());
+             Console.Write(" =  ");
+
+             r = x / y;
+
+
+             Console.WriteLine(Convert.ToString(r));
+             Console.ReadKey(); */
+
+            // حساب العمر =======================================================================================================
+
+
+            /* DateTime MyAge;
+           Console.Write(" Enter YOR DATA PORN \n");
+           MyAge = Convert.ToDateTime(Console.ReadLine());
+
+           int Year = Convert.ToInt32(DateTime.Now.Subtract(MyAge).TotalDays) / 360;
+
+
+           Console.WriteLine(" your age is " + Year + " Year ");
+           Console.ReadKey(); */
+
+
+            //  if (الشرطية الخطوة الطويلة (1=====================================================================================
+            /* string name,pass;
+             Console.WriteLine("Enter your name");
+             name = Console.ReadLine();
+
+             Console.WriteLine("Enter your pass");
+             if (name == "Ali")
+             {
+                 pass = Console.ReadLine();
+                 if (pass == "1234")
+                 {
+                     Console.WriteLine(" Hi " + name);
+                     Console.ReadKey(); 
+
+                 }
+             } */
+
+
+
+            //  if الشرطية رقم 2 باختصار ============================================================================================================
+
+
+            /* string name, pass;
+              Console.WriteLine("Enter your name");
+
+              name = Console.ReadLine();
+
+              Console.WriteLine("Enter your pass");
+              pass = Console.ReadLine();
+
+
+              if ((name == "Ali") && (pass == "1234"))
+
+
+                      Console.WriteLine(" Hi " + name);
+                      Console.ReadKey(); */
+
+
+
+            // if else عندما نريد ان نقول شي اخر عندما يغلط في الادخال ===========================================================
+
+            /* string name, pass;
+             Console.WriteLine("Enter your name");
+
+             name = Console.ReadLine();
+
+             Console.WriteLine("Enter your pass");
+             pass = Console.ReadLine();
+
+
+             if ((name == "Ali") && (pass == "1234"))
+
+             {
+                 Console.WriteLine(" Hi " + name);
+                 Console.ReadKey();
+
+             }
+
+             else
+             {
+                 Console.WriteLine("uesr name or pass not true ");
+                 Console.ReadKey();
+             } */
+
+
+
+            // if else مع بعض عندما اريد ان اصبح اكثر تحديدا اذا كانت كلمة السر غلط او الاسم =================================================
+
+
+            /*string name, pass;
+            Console.WriteLine("Enter your name");
+
+            name = Console.ReadLine();
+
+            Console.WriteLine("Enter your pass");
+            pass = Console.ReadLine();
+
+
+            if ((name == "Ali") && (pass == "1234"))
+
+            {
+                Console.WriteLine(" Hi " + name);
+                Console.ReadKey();
+
+            }
+
+            else if (!(pass == "1234"))
+            {
+                Console.WriteLine("pass is not true ");
+
+            }
+
+            else if (!(name == "Ali")) 
+            {
+                Console.WriteLine("USR NAME IS NOT TRUE");
+            }
+
+            Console.ReadKey(); */
+
+
+
+            //  i++  الزيادة و النقصان  ======================================================================================= لم  افهم ==============
+
+
+            /*  int i = 10;
+              i = i + 1;
+
+              int z = ++i - 2;
+              Console.WriteLine(z); */
+
+
+
+            // الاسبقيات الرياضة الضرب قبل الجمع وو هكذا ============================================================================================
+
+            /*        * ()
+                      * ++i ,--i 
+                      *  ^
+                      *  */
+            /*        *  +-
+                      *  =
+                      *  i++ , i--             */
+
+
+            /*  int y = 3 - 5 * 5 + 9;                     // مثال رقم 1
+              // y =  3 - 25 + 9
+              // y = -22 + 9
+              // y =  -13
+
+              Console.WriteLine(y); */
+
+            /*  int i = 5;                                //  مثال رقم 2 
+              int z = 3 * 2 + 4 * i++ / 2;
+              // z =  6  + 4 * i++ / 2
+              // z =  6 +  4 * 5 / 2
+              // z =  6 + 20 / 2
+              // z =  6 + 10
+              // z = 16
+
+              Console.WriteLine(z); */
+
+
+
+            /*   int i = 5;                                    // مثال رقم 3 
+                 int z = 3 * 2 + 4 * ++i / 2;
+                 // z = 3 * 2 + 4 * 6 /2
+                 // z = 6  +  24 / 2
+                 //z = 6 + 12
+                 // z = 18
+
+                 Console.WriteLine(z); */
+
+
+            /*  int z = 5 + 6*(2 + 4);                            // مثال رقم 4 
+                //  z = 5 + 6 * 6 
+                //  z = 5 + 36 
+                //  z = 41 
+                Console.WriteLine(z); */
+
+
+
+            // case استخدام تعمل عمل IF لاكن بطريقة اسرع و اسهل  =======================================================================================
+
+
+            /*   Console.WriteLine("select item");
+
+
+               int x = Convert.ToInt32(Console.ReadLine());
+
+               switch (x)
+               {
+                   case 1:
+                       Console.WriteLine("one is her");
+                       break;
+
+
+                   case 2:
+                       Console.WriteLine(" 2 is her");
+                       break;
+
+                   case 3:
+                       Console.WriteLine(" 3 is her");
+                       break;
+
+                   case 4:
+                       Console.WriteLine(" 4 is her");
+                       break;
+
+
+                   default:
+                       Console.WriteLine("namber is not true");
+                       break;
+
+
+               }
+
+
+               Console.ReadKey(); */
+
+
+
+
+            //  العبارات التكرارية =======================================================================================================================
+
+
+
+            /* for (int i = 0; i < 100000000; i++) 
+             {
+                 Console.WriteLine("My Name is mahmoud" + "i don,t fuck know you who are you" + "what do you want from me" + "one day i will do ");
+
+
+
+             }
+
+
+             Console.ReadKey(); */
+
+
+
+            // العبرات التكرايرية الجزء التاني 22 =========================================================================================
+
+
+            /*   for ( int i = -1000000000; i < 1000000000; i++) // i = i + الرقم)  لو عاوز ازود 
+               {
+                   Console.WriteLine(i);
+               }
+               */
+
+            //  العبارات التكرارية الجز 3 ================================================================================================================
+
+
+
+            /* for (int i = 0; i <= 3; i++) // i = i + الرقم)  لو عاوز ازود 
+             {
+                 Console.WriteLine("i=" +i);
+
+                 for (int y = 0; y < 5; y++)
+                 {
+                     Console.WriteLine("y=" +y);
+                 }
+             } */
+
+
+
+            // مثال 2 العبرات التكرارية طباعة النجمات %%%%%%%%%%%%%%%%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+            /*   for (int i = 0; i < 100000; i++)
+               {
+                   for (int y =i; y <1000; y++)
+                   {
+                       Console.Write(" ");
+                   }
+                   Console.Write("@@@@@@@@@///////");
+                   Console.Write("\n");
+               }
+
+               Console.ReadKey(); */
+
+
+            // العبرات التكرارية الجز الرابع باستخدام while  =========================================================================================================
+
+
+          /*  int i = 0;
+                while (i < 5)
+            {
+                Console.WriteLine("i=" + i);
+
+                i++;
+            }
+
+            Console.ReadKey(); */
+
+
+
+
+        }
+
+
+    }
+ }
