@@ -1,25 +1,49 @@
 using System;
+using static System.Math;
 
-namespace work_2_2
+namespace ConsoleApp12
 {
     class Program
     {
         static void Main(string[] args)
         {
+            double Xn = -7, Xk = 11, Xd = 1, y = 0;
+            double x = Xn;
+            Console.WriteLine("X | Y");
+            while (x <= Xk)
             {
-                double Zvezdochki = 1000;
-                double chislo;
-                for (int i = 100; i < Zvezdochki; i += 10)
+                if (Xn <= x && -3 >= x)
+                    y = 3;
+                if (-3 < x && 3 >= x)
+                    y = (6 - Sqrt(36 - 4 * Pow(x, 2))) / 2;
+                if (3 < x && 6 >= x)
+                    y = (-6 * (x - 3)) / 3 + 3;
+                if (6 < x && 11 >= x)
+                    y = (x - 6) - 3;
+                Console.WriteLine(x + " | " + y);
+                x = x + Xd;
+
+            } 
+                // Вариант 6
+
                 {
-                    chislo = 42004 + i;
-                    if (chislo % 72 == 0)
+                Console.WriteLine("==============================");
+
+
+                    double Zvezdochki = 1000;
+                    double chislo;
+                    for (int i = 100; i < Zvezdochki; i += 10)
                     {
-                        Console.WriteLine(chislo);
+                        chislo = 42004 + i;
+                        if (chislo % 72 == 0)
+                        {
+                            Console.WriteLine(chislo);
+                        }
                     }
+
+
                 }
-
-
-            }
+            
         }
     }
 }
