@@ -1,1 +1,41 @@
+using System;
+using System.IO;
+
+namespace Reveres_11
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //Console.Write("Enter any Tast: ");
+
+            String str = "C # programming language";
+            
+            String strReverse = "";
+
+            for (int x = str.Length -1 ; x >= 0; x--) 
+            {
+                strReverse += str[x];
+            }
+
+            Console.WriteLine(strReverse);
+            Console.WriteLine(strReverse);
+
+
+
+
+
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
 
