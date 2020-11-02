@@ -1,1 +1,43 @@
+using System;
+using static System.Math; 
 
+namespace Lab1
+{
+    class Program
+    {
+       
+      
+
+        static void Main(string[] args)
+        {
+            double a = double.Parse(Console.ReadLine()); 
+
+            // 1 variant
+            double z1 = Cos(a) + Sin(a) + Cos(3 * a) + Sin(3 * a);
+            double z2 = (double)1 / 4 - (double)1 / 4 * Sin((double)5 / 2 * PI - 8 * a);
+
+            Console.WriteLine(Round(z1, 3));
+            Console.WriteLine(Round(z2, 3));
+            double b = double.Parse(Console.ReadLine());
+
+            // 6 variant 
+            double z3 = Cos(a) + Cos(2 * a) + Cos(6 * a) + Cos(7 * a);
+            double z4 = 4 * Cos(a / 2) * Cos((double)5 / 2) * Cos(4 * a);
+
+            Console.WriteLine(Round(z1, 3));
+            Console.WriteLine(Round(z2, 3));
+            double c = double.Parse(Console.ReadLine());
+
+
+            // 7 variant
+            z1 = Pow(Cos((double)3 / 8 * PI - a / 4), 2) - Pow((double)11 / 8 * PI + a / 4, 2);
+            z2 = Sqrt(2) / 2 * Sin(a / 2);
+
+            Console.WriteLine(z1);
+            Console.WriteLine(z2);
+
+
+
+        }   
+    }
+}
