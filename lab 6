@@ -38,3 +38,139 @@ namespace CR_File
         }
     }
 }
+
+======================================================================================================================================================================================
+اول سوال 
+
+using Microsoft.Win32.SafeHandles;
+using System;
+using System.IO;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
+
+namespace lab_6_1_8
+{
+    class Program
+    {
+        private const char V = '\n';
+        private static object text;
+
+        static void Main()
+        {
+            // writeFile(@"D:\File\twst.txt");
+            ReadFile(@"D:\File\twst.txt");
+            Console.ReadLine();
+        }
+        static void ReadFile(string path)
+        {
+            StreamReader reader = new StreamReader(path);
+            string FileDate = reader.ReadToEnd();
+            Console.WriteLine(FileDate);
+
+        }
+        static void writeFile(string path, string data)
+        {
+            StreamWriter writedata = new StreamWriter(path);
+            writedata.WriteLine(data);
+
+            writedata.Close();
+
+            Console.WriteLine("============================");
+        }
+        
+        static void SplitFile(string inputFile, int chunkSize, string path)
+        {
+
+
+            string[] s = path.Split(V, ' ', '\r');
+
+            int maxLen = 0, count = 0;
+            string word = "";
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (maxLen < s[i].Length)
+                {
+                    maxLen = s[i].Length;
+                    word = s[i];
+                }
+            }
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (s[i] == word) count++;
+            }
+            Console.WriteLine("The longest word:");
+            Console.WriteLine("The number of impressions");
+
+
+
+
+
+
+            Console.WriteLine("Count of '{word}' is {count}");
+            Console.ReadKey();
+        }
+    }
+}
+
+
+
+تاني سوال
+=======================================================================================================================================================
+
+using System;
+using System.IO;
+using System.Collections.Generic;
+
+
+
+namespace lab_6_._2_._1
+{
+    class program
+    {
+        private static object kolvoSents;
+
+        public static DateTime MyAge { get; private set; }
+
+        static void Main()
+        {
+            
+
+            ReadFile(@"D:\File\file.txt");
+            Console.ReadLine();
+        }
+        static void ReadFile(string path)
+        {
+            StreamReader reader = new StreamReader(path);
+            string FileDate = reader.ReadToEnd();
+            Console.WriteLine(FileDate);
+
+            if (File.Exists(path))
+            {
+                Console.WriteLine("Yes, There are Names \n");
+            }
+
+
+            Console.WriteLine("maximum age = 70  \n");
+          //  MyAge = Convert.ToDateTime(Console.ReadLine());
+           // int Year = Convert.ToInt32(DateTime.Now.Subtract(MyAge).)/ 360;
+        }
+
+
+
+        static void writeFile(string path, string data)
+        {
+            StreamWriter writedata = new StreamWriter(path);
+            writedata.WriteLine(data);
+
+            writedata.Close();
+          /*  if (File.Exists(path))
+            {
+                Console.WriteLine("Yes, There are Names");
+            } */
+
+            
+    }
+    }
+}
