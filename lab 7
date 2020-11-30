@@ -1,0 +1,157 @@
+using System;
+using System.IO;
+
+
+namespace lab7_1
+{
+    class Program
+    {
+
+        static void Main(string[] args)
+        {
+            car x = new car("BMW", "20000$", 400);
+            x.show();
+
+            car y = new car("Alfa", "50000$", 500);
+            y.show();
+
+
+            car sum = x + y;
+            sum.show();
+            
+
+             x.changeBrand("Jeep");
+             x.changeCost("30000$");
+            x.changePower(600);
+
+
+            y.changeBrand("Chevrolet");
+            y.changeCost("45000$");
+            y.changePower(450);
+
+            x.Save();
+            y.Save();
+
+            
+        }
+    }
+    class car
+    {
+         string Brand, Cost;
+         uint Power;
+
+        public car(string brand)
+        {
+            brand = "No Brand";
+            cost = "NO Cost";
+            power = 0;
+        }
+
+        public car(string brand, string cost, uint power)
+        {
+            this.brand = brand;
+            this.cost = cost;
+            this.power = power;
+        }
+
+        public void changeBrand(string Brand)
+        {
+            this.Brand = Brand;
+        }
+
+        public void changeCost(string Cost)
+        {
+            this.Cost = Cost;
+        }
+
+
+        public void changePower(uint Power)
+        {
+            this.Power = Power;
+        }
+
+        static string Link = @"C:\Users\user\output.txt";
+
+        public void Save()
+        {
+            using (FileStream fs = new FileStream(Link, FileMode.Append))
+            {
+                using (StreamWriter sw = new StreamWriter(fs))
+                {
+
+                    sw.WriteLine($"Brand: {Brand}");
+                    sw.WriteLine($"Cost {Cost}");
+                    sw.WriteLine($"Power: {Power}");
+
+                }
+
+            }
+        }
+
+
+        public void show()
+        {
+            Console.WriteLine($"Brand: {Brand}");
+            Console.WriteLine($"Cost: {Cost}");
+            Console.WriteLine($"Power: {Power}");
+        }
+
+
+        public void set(string Brand, string Cost, uint Power)
+        {
+            brand = Brand;
+            cost = Cost;
+            power = Power;
+        }
+
+
+        public String brand
+        {
+            get { return Brand; }
+            set { Brand = value; }
+
+        }
+
+        public string cost
+        {
+            get { return Cost; }
+            set { Cost = value; }
+        }
+
+
+        public uint power
+        {
+            get { return power; }
+            set { Power = value; }
+
+
+
+        }
+
+
+
+        public static car operator +(car a, car b)
+        {
+            return new car(a.brand, a.cost, a.Power+ b.Power);
+        }
+
+        public static bool operator <(car a, car b)
+        {
+            return a.Power < b.Power;
+        }
+
+        public static bool operator >(car a, car b)
+        {
+            return a.Power > b.Power;
+        }
+
+
+
+
+    }
+
+
+
+    
+}
+
