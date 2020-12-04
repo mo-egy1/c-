@@ -31,9 +31,91 @@ namespace Reveres_11
 
 
 
+================================================================================================================================================
+
+using System;
+using System.Linq;
 
 
+namespace laba5_2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Enter any thing: ");
+            Console.WriteLine("\n");
 
+
+            string s = Console.ReadLine() +"\n" ;
+            
+            Console.WriteLine("The Original text: "  + s + "\n");
+           
+
+            int K = 0;
+            int Z = 0;
+            s = s.Replace(", ", " ");
+            s = s.Replace(".", " ");
+            string[] a = s.Split(' ');
+            for (int i = 0; i < a.Length - 1; i++)
+            {
+                if (a[i].Length > K && a[i].Length <= 20)
+                    K = a[i].Length;
+                else if (a[i].Length > 20)
+                    Z = Z + 20;
+            }
+            if (Z == 0)
+                Console.WriteLine("Maximum length of letters in the text : "  + K + "\n");
+            if (Z > 10)
+                Console.WriteLine("Erorr!!! ");
+            string alfavit = "abcdefghijklmnopqrstuvwxyz";
+            string ALFAVIT = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            char[] array = s.ToArray();
+            for (int i = 0; i < array.Length; i++)
+            {
+                for (int j = 0; j < alfavit.Length; j++)
+                {
+                    if (array[i].Equals(alfavit[j]))
+                    {
+                        if ((j + K) < alfavit.Length)
+                        {
+                            array[i] = alfavit[j + K];
+                            break;
+                        }
+                        else
+                        {
+                            array[i] = alfavit[j + K - alfavit.Length];
+                            break;
+                        }
+                    }
+                }
+            }
+            for (int i = 0; i < array.Length; i++)
+            {
+                for (int j = 0; j < ALFAVIT.Length; j++)
+                {
+                    if (array[i].Equals(ALFAVIT[j]))
+                    {
+                        if ((j + K) < ALFAVIT.Length)
+                        {
+                            array[i] = ALFAVIT[j + K];
+                            break;
+                        }
+                        else
+                        {
+                            array[i] = ALFAVIT[j + K - alfavit.Length];
+                            break;
+                        }
+                    }
+                }
+            }
+
+            
+            Console.WriteLine("The new string = " + new string(array) + "\n");
+        }
+
+    }
+}
 
 
 
