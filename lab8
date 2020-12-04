@@ -402,7 +402,40 @@ namespace lab_8_1_1
 
 }
 
-   
-   
+  =================================================================================================================================== 
+   using System;
+using static lab_8_1_1.Class1;
+
+
+
+namespace lab_8_1_1
+{
+    class program
+    {
+
+        static void Main(string[] args)
+        {
+            int[,] arr = new int[3, 2];
+            ArrRandom(-12, 12, arr);
+
+            Console.WriteLine("Array" +"\n" + OutArr(arr));
+
+            Console.WriteLine("The Sum = "+"\n" + sumofArr(arr));
+            Console.WriteLine("\n");
+
+
+            Console.WriteLine("The product of array = " + "\n" + proArr(arr));
+            Console.WriteLine("\n");
+
+
+            Console.WriteLine("Max =" + "\n" + OutArr(Max(ref arr)));
+
+       
+
+
+        }
+    }
+}
+
 
 
