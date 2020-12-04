@@ -1,1 +1,408 @@
+الاسم  lab_8_1_1
+
+using System;
+
+
+namespace lab_8_1_1
+{
+    public static class Class1
+    {
+        ////(1)  add to the array  مالي المصفوفة
+
+        // int array  مصفوفة احادية البعد من نوع int 
+        public static void ArrRandom(int n, int z, int[] arr)
+        {
+            Random rand = new Random();
+            for (int i = 0; i < arr.Length; i++)
+            {
+                arr[i] = rand.Next(n, z);
+            }
+        }
+
+
+        // two-dimensional int array  مصفوفه من نوع ثناي البعد 
+
+        public static void ArrRandom(int n, int z, int[,] arr)
+        {
+            int Line = arr.GetUpperBound(0) + 1;
+            int column = arr.Length / Line;
+
+            for (int i = 0; i < Line; i++)
+            {
+                Random rand = new Random();
+                for (int j = 0; j < column; j++)
+                {
+                    arr[i, j] = rand.Next(n, z);
+                }
+            }
+        }
+
+
+        // double array مصفوفة من نوع 
+
+        public static void ArrRandom(double[] arr)
+        {
+            Random rand = new Random();
+            for (int i = 0; i < arr.Length; i++)
+            {
+                arr[i] = rand.NextDouble();
+            }
+        }
+
+
+        // two-dimensional double array  مصفوفة ثناىية البعد من نوع 
+
+        public static void ArrRandom(double[,] arr)
+        {
+            int Line = arr.GetUpperBound(0) + 1;
+            int column = arr.Length / Line;
+
+            for(int i = 0; i < Line; i++)
+            {
+                Random rand = new Random();
+                for (int j = 0; j < column; j++)
+                {
+                    arr[i, j] = rand.NextDouble();
+                }
+            }
+        }
+
+       ////(2)  Sum of      حساب مجموع عناصر المصفوفة   العمليات الحسابية 
+
+
+
+        // int array           مصفوفة احادية البعد من نوع int
+        public static int sumofArr(int[] arr)
+        {
+            int sum = 0;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                sum += arr[i];
+            }
+            return sum;
+        }
+
+
+
+        // two-dimensional int array        من نوع int ثناىية البعد 
+
+
+        public static int sumofArr(int[,] arr)
+        {
+            int sum = 0;
+            
+            foreach (var i in arr)
+            {
+                sum += i;
+            }
+
+            return sum;
+        }
+
+        // two-dimensional int array   مصفوفة ثناية البعد من نوع double
+
+
+
+        public static double sumofArr(double[,] arr)
+        {
+            double sum = 0;
+            foreach(var i in arr)
+            {
+                sum += i;
+            }
+            return sum;
+        }
+
+
+        ////(3)  The product of array elements    حساب حاصل ضرب المصفوفات   
+
+        // int array    ضرب مصفوفة من نوع int
+        
+        public static int proArr(int[] arr)
+        {
+            int mult = 1;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                mult *= arr[i];
+            }
+
+            return mult;
+        }
+
+
+        // two-dimensional int array  مصفوفة ثناىية البعد من نوع int 
+
+        public static int proArr(int[,] arr)
+        {
+            int mult = 1;
+            foreach (var i in arr)
+            {
+                mult *= i;
+            }
+            return mult;
+        }
+
+
+
+        // double array مصفوفية احادية البعد من نوع double
+
+        public static double proArr(double[] arr)
+        {
+            double mult = 1;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                mult *= arr[i];
+            }
+            return mult;
+        }
+
+        // two dimensional double array   مصفوفة ثناىة البعد من نوع double
+
+        public static double proArr(double[,] arr)
+        {
+            double mult = 1;
+            foreach (var i in arr)
+            {
+                mult *= i;
+            }
+            return mult;
+        }
+
+
+
+        ////(4) the Max elements and index of     تُرجع الحد الأقصى لعنصر المصفوفة وإحداثياتها. (المرجع أو الخروج)
+
+        // int array 
+
+        public static int[] Max(ref int[] arr)
+        {
+            int[] retur = new int[2];
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (retur[0] < arr[i])
+                {
+                    retur[0] = arr[i];
+                    retur[1] = i;
+
+                }
+            }
+
+            return retur;
+        }
+
+
+        // two dimensional int array مصفوفة ثناىية البعد من نوع int 
+
+        public static int[] Max(ref int[,] arr)
+        {
+            int[] retur = new int[3];
+            int Line = arr.GetUpperBound(0) + 1;
+            int column = arr.Length / Line;
+
+            for (int i = 0; i < Line; i++)
+            {
+                for (int j = 0; j < column; j++)
+                {
+                    if (retur[0] < arr[i, j])
+                    {
+                        retur[0] = arr[i, j];
+                        retur[1] = i;
+                        retur[2] = j;
+
+                    }
+                }
+            }
+
+            return retur;
+        }
+
+        // double array     double مصفوفة احادية البعد من نوع 
+
+        public static double[] Max(ref double[] arr)
+        {
+            double[] retur = new double[2];
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (retur[0] < arr[i])
+                {
+                    retur[0] = arr[i];
+                    retur[1] = i;
+                }
+            }
+
+            return retur;
+        }
+
+
+        // two dimensional double array  مصفوفة ثناىية البعد من نوع double
+
+        public static double[] Max(ref double[,] arr)
+        {
+            double[] retur = new Double[3];
+            int Line = arr.GetUpperBound(0) + 1;
+            int column = arr.Length / Line;
+
+            for (int i = 0; i < Line; i++)
+            {
+                for (int j = 0; j < column; j++)
+                {
+                    if (retur[0]  < arr[i , j])
+                    {
+                        retur[0] = arr[i, j];
+                        retur[1] = i;
+                        retur[2] = j;
+                    }
+                }
+            }
+
+            return retur;
+        }
+
+
+        // string array 
+        public static int[] Max(ref string[] arr)
+        {
+            int[] retur = new int[2];
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if(retur[0] < arr[i].Length)
+                {                  
+                        retur[0] = arr[i].Length;
+                        retur[1] = i;
+                    
+                }
+            }
+
+            return retur;
+        } 
+
+        // two dimensional string array   مصفوفة ثناىة البعد 
+
+        public static int[] Max(ref string[,] arr)
+        {
+            int[] retur = new int[3];
+            for (int i =0; i < arr.GetUpperBound(0) + 1; i++)
+            {
+                for (int j = 0; j < (arr.Length / (arr.GetUpperBound(0) + 1)) ; j++)
+                {
+                    if (retur[0] < arr[i, j].Length)
+                    {
+                        retur[0] = arr[i, j].Length;
+                        retur[1] = i;
+                        retur[2] = j;
+                    }
+                }
+               
+
+            }
+            return retur;
+
+        }
+
+
+        ////(5)   The Outputting of the array    إخراج مصفوفة إلى الشاشة (إرجاع سلسلة من التنسيق المناسب).
+
+
+
+        // int array مصفوفة احادية البعد 
+        public static string OutArr(int[] arr)
+        {
+            string res = "";
+            foreach(var i in arr)
+            {
+                res += Convert.ToString(i) + " ";
+            }
+            return res;
+        }
+
+         // two-dimensional int array     مصفوفة ثناىية البعد من نوع int 
+        
+            public static string OutArr(int[,] arr)
+        { 
+            string res = "";
+            int line = arr.GetUpperBound(0) + 1;
+            int colum = arr.Length / line;
+
+            for (int i = 0; i < line; i++)
+            {
+                for (int j = 0; j < colum; j++)
+                {
+                    res += Convert.ToString(arr[i, j]) + " ";
+
+                }
+                res += "\n";
+            }
+            return res;
+        }
+
+        // double arr  مصفوفة من نوع double
+
+        public static void output(double[] arr)
+        {
+            foreach(var i in arr)
+            {
+                Console.Write($"{i}");
+            }
+            Console.WriteLine();
+        }
+
+
+        // two dimensional double arr مصفوثة ثناية البعد من نوع double
+
+
+        public static void output(double[,] arr)
+        {
+            int line = arr.GetUpperBound(0) + 1;
+            int colum = arr.Length / line;
+
+            for (int i = 0; i < line; i++)
+            {
+                for (int j = 0; j < colum; j++)
+                {
+                    Console.Write($"{arr[i, j]} ");
+                }
+                Console.WriteLine();
+
+
+            }
+        }
+        // string arr مصفوفة من نوع stringe
+
+        public static void output(string[] s )
+        {
+                foreach (var i in s)
+                    Console.Write($"{i}");
+                Console.WriteLine();
+
+        }
+        
+
+        // two dimensional string arr    مصفوفة ثناية البعد من نوع string
+
+        public static void output(string[,] s)
+        {
+            int line  = s.GetUpperBound(0) + 1;
+            int colum = s.Length / line;
+
+
+            for (int i = 0; i < line; i++)
+            {
+
+
+                for (int j = 0; j < colum; j++)
+                {
+
+                    Console.Write($"{s[i, j]}) ");
+                }
+                Console.WriteLine();
+            }
+        }
+
+    }
+
+}
+
+   
+   
+
 
