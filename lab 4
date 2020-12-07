@@ -1,1 +1,133 @@
+نفس اسم نيم سبيس
+
+using System;
+using System.Linq;
+using System.Collections.Generic;
+
+namespace lab_4_
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            
+            Console.WriteLine("Enter 5 Element:");
+
+            // frist list القاىمة الاولة 
+            List<int> fri = new List<int>();
+
+            for (int i = 0; i <5; i++)
+            {
+                int num = Convert.ToInt32(Console.ReadLine());
+                fri.Add(num);
+
+            }
+
+          //ADD   // اضافة رقم 
+
+            int E = 1;
+            foreach(int i in fri)
+            {
+                Console.WriteLine($"Ele {E} = {i}");
+                E++;
+            }
+
+            Console.WriteLine("Enter another number: ");
+            int q = Convert.ToInt32(Console.ReadLine());
+            fri.Add(q);
+
+            E = 1;
+            Console.WriteLine("The new List =" + "\n");
+            foreach(int i in fri)
+            {
+                Console.WriteLine($"Ele {E} = {i}");
+                E++;
+            }
+            Console.WriteLine();
+
+
+            // The second list  القاىمة الثانية تتكون من 3 عناصر 
+
+
+            Console.WriteLine("Enter 3 Element for the Second List =");
+
+            List<int> fri2 = new List<int>(3);
+            for(int i = 0; i <3; i++)
+            {
+                int o = Convert.ToInt32(Console.ReadLine());
+                fri2.Add(o);
+            }
+
+            //ادخال العناصر 
+            E = 1;
+            Console.WriteLine("The Second List = ");
+            foreach(int i in fri2)
+            {
+                Console.WriteLine($"Ele {E} = {i} ");
+                E++;
+            }
+            Console.WriteLine();
+
+            int z = 2;
+            foreach (int i in fri2)
+            {
+                fri.Insert(z, i);
+                z++;
+            }
+
+            E = 1;
+            Console.WriteLine("The result of changing the first list = ");
+            foreach( int i in fri)
+            {
+                Console.WriteLine($"Ele {E} = {i}");
+                E++;
+
+            }
+            Console.WriteLine();
+
+            // 4,5,6 the number ,max ,output of the frist list   عدد و اقصي و اخراج عناصر المجموعة الاولة 
+
+
+            fri.Insert(E / 2, fri.IndexOf(fri.Max()));
+
+            Console.WriteLine($"The Size of frist list = {E}");
+            Console.WriteLine($"The Max ELe = {fri.Max()}");
+            Console.WriteLine($"The Min Ele = {fri.Min()}");
+
+            // 7 ARRAY  اطبع العناصر في مصفوفة 
+
+
+            int[] arr = new int[3];
+
+            E = 0;
+
+            foreach(int i in fri2)
+            {
+                arr[E] = i;
+                E++; 
+            }
+
+            Console.WriteLine("The Array of The second list = ");
+             foreach (int i in arr)
+            {
+                Console.Write($"{i}");
+            }
+            Console.WriteLine();
+
+
+
+            // 8  Remove  ازلة الرقم الثاني في المجموعة الثانية
+
+
+            Console.WriteLine("Element from second list: ");
+            foreach (int i in fri2)
+            {
+                Console.Write($"{i} ");
+            }
+
+
+        }
+    }
+}
 
