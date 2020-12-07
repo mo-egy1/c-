@@ -244,7 +244,7 @@ namespace كورس_1
 
             /* for (int i = 0; i < 100000000; i++) 
              {
-                 Console.WriteLine("My Name is mahmoud" + "i don,t fuck know you who are you" + "what do you want from me" + "one day i will do ");
+                 Console.WriteLine(" ");
 
 
 
