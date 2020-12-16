@@ -1,0 +1,142 @@
+using System;
+
+namespace Lab_10
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            //3 
+
+            student[] students = new student[4];
+
+            students[0] = new student("Ali");
+            students[1] = new Baccalaur("Ahmed", 18);
+            students[2] = new Master("Noura", "girl");
+            students[3] = new Specialty("Salah", 90);
+
+        
+
+
+            for (int i = 0; i < 4; i++)
+            {
+                students[i].show();
+            } 
+           
+            
+        }
+    }
+
+    public class student
+    {
+        //одним параметром معامل واحد 
+
+        string name;
+
+        //
+        public student()
+        {
+            name = "NoName"; 
+        }
+
+        public student(string name)
+        {
+            this.name = name;
+        }
+
+        public string Name
+        {
+            get { return name; }
+            set { name = value; }
+        }
+
+        public virtual void show()
+        {
+            Console.WriteLine($"Student    \t Name: {name}");
+        }
+        
+    }
+
+     // first class
+    public class Baccalaur : student
+    {
+        int Age;
+       string Name;
+
+        public Baccalaur()
+        {
+            Age = 0;
+        }
+
+        public Baccalaur(string name, int Age) : base(name)
+        {
+           Name = name;
+            this.Age = Age;
+        }
+
+        public override void show()
+        {
+            
+            Console.WriteLine($"Baccalaur    \t Name: {Name}\t Age: {Age}");
+           
+        }
+
+
+    }
+
+    //второй class
+    public class Master : student
+    {
+        //вид النوع kind 
+        string TheKind;
+        string Name;
+
+        public Master()
+        {
+            TheKind = "No kind";
+        }
+
+        public Master(string name, string TheKind) : base(name)
+        {
+            Name = name;
+            this.TheKind = TheKind;
+        }
+
+        public override void show()
+        {
+            Console.WriteLine($"Master    \t Name: {Name}\t TheKind: {TheKind}");
+        }
+
+
+    }
+
+    // третий class
+    public class Specialty : student
+    {
+        //оценка المعدل 
+
+        int therate;
+
+        public Specialty() : base()
+        {
+            therate = 80;
+        }
+        public Specialty(string name, int therate) : base(name)
+        {
+            Name = name;
+            this.therate = therate;
+
+        }
+
+        public override void show()
+        {
+            Console.WriteLine($"Specialty    \t Name: {Name}\t therate: {therate}");
+               
+        }
+
+
+
+
+    }
+}
