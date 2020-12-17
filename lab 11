@@ -1,0 +1,208 @@
+using System;
+using System.Collections.Generic;
+
+
+namespace Lab_11
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            College coll = new College();
+
+            coll.AddBacalaver("Ali" ,5);
+            coll.AddMegistr("Ahmed", 4);
+            coll.AddAspirant("salah", 3);
+
+       
+            coll.Delete(1);
+            coll.output();
+            Console.WriteLine();
+
+
+            coll.changeName(1 , "noura");
+            coll.changeChorus(1, 4);
+            coll.output();
+
+        }
+    }
+    class College
+    {
+       
+        List<student> students = new List<student>();
+
+        public void AddBacalaver(string name, int Chorus)
+        {
+
+            students.Add(new Bacala(name));
+        }
+
+        public void AddBacalaver(int Chorus)
+        {
+
+            students.Add(new Bacala(Chorus));
+        }
+
+
+
+        public void AddMegistr(string name, int Chorus)
+        {
+            students.Add(new Megr(name));
+        }
+
+
+
+        public void AddMegistr(int Chorus)
+        {
+            students.Add(new Megr(Chorus));
+        }
+
+
+        public void AddAspirant(string name , int Chorus)
+        {
+            students.Add(new Aspi(name));
+        }
+
+
+        public void AddAspirant(int Chorus)
+        {
+            students.Add(new Aspi(Chorus));
+        }
+
+
+        public void changeName (int index, string name)
+        {
+            students[index].change(name);
+        }
+
+        public void changeChorus (int index, int Chorus)
+        {
+            students[index].change(Chorus);
+        }
+
+
+     
+
+
+
+        public void Delete (int index )
+        {
+            students.RemoveAt(index);
+        }
+
+        public void output()
+        {
+            Console.WriteLine("****************");
+             foreach (var i in students)
+             {
+                
+                 Console.WriteLine($"{i.Name}");
+                 Console.WriteLine($"{i.Chorus}");
+             }
+
+
+
+            Console.WriteLine("****************");
+        }
+    }
+
+    abstract class student
+    {
+
+        private string name;
+        private int chorus;
+
+        public string Name
+        {
+            get { return name; }
+            set { name = value; }
+        }
+
+        public int Chorus
+        {
+            get { return chorus; }
+            set { chorus = value; }
+
+        }
+
+        public student(string name)
+        {
+            this.name = name;
+        }
+
+        public student(int chorus)
+        {
+            this.chorus = chorus;
+        }
+
+        public abstract string change(string name);
+        public abstract int change(int chorus);
+
+        internal void output()
+        {
+           
+        }
+    }
+
+
+    class Bacala : student
+    {
+        public Bacala(string name) : base(name){}
+        public override string change(string name)
+        {
+            Name = name;
+            return Name;
+        }
+
+        public Bacala(int chorus) : base(chorus) { }
+        public override int change(int chorus)
+        {
+            Chorus = chorus;
+            return Chorus;
+        }
+
+    }
+
+    class Megr : student
+    {
+        public Megr(string name) : base(name) { }
+
+        public override string change(string name)
+        {
+            Name = name;
+            return Name;
+        }
+
+
+        public Megr(int chorus) : base(chorus) { }
+        public override int change(int chorus)
+        {
+            Chorus = chorus;
+            return Chorus;
+        }
+
+    }
+
+    class Aspi : student
+    {
+        public Aspi(string name) : base(name) { }
+        public override string change(string name)
+        {
+            Name = name;
+            return Name;
+        }
+
+
+        public Aspi(int chorus) : base(chorus) { }
+        public override int change(int chorus)
+        {
+            Chorus = chorus;
+            return Chorus;
+        }
+
+    }
+
+
+
+
+}
