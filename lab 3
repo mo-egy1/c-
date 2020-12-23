@@ -1,1 +1,212 @@
+(11111111111111111111111111111111111111111111111111111111)
+using System;
+using System.IO;
+
+namespace lab_3_1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // номер 8
+            //(1)вещественных элементов    مصفوفة احادية البعد تتكون من عناصر حقيقية
+
+            int n;
+
+            Console.WriteLine("Enter the number of items");
+            n = Int32.Parse(Console.ReadLine());
+            double[] Arr = new double[n];
+
+            //меньших С اقل من
+            double c;
+           
+            double sum = 0;
+            double In = 0;
+          
+
+            Console.WriteLine("Enter array elements");
+
+            for ( int i =0; i < n; ++i)
+            {
+                Arr[i] = Double.Parse(Console.ReadLine());
+
+            }
+
+            for (int i = 0; i < n; ++i)
+            {
+                if (Arr[i] < 0)
+                    In = i;
+            }
+
+            //sum 
+
+            for (int i = Convert.ToInt32(++In); i < n; ++i)
+               {
+                sum += Convert.ToDouble(Arr[i]);
+            }
+
+        
+
+            Console.WriteLine("The sum = " + sum + "\n");
+
+
+            //copy Array
+
+            Console.WriteLine("The Print array = "+"\n");
+            foreach (int i in Arr)
+            {
+               
+                Console.Write(i + " \n ");
+
+            }
+
+
+            Console.ReadKey();
+
+        }
+    }
+}
+
+
+
+
+
+
+========================================================================================================================================================================
+(2222222222222222222222222222222222222222222222222)
+
+using System;
+
+namespace lab_3_2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter n");
+            int n = Int32.Parse(Console.ReadLine());
+            int[,] mas = new int[n, n];
+            for (int i = 0; i < n; i++)
+            {
+                string[] s = Console.ReadLine().Split(' ');
+
+                for (int j = 0; j < n; j++)
+                    mas[i, j] = Convert.ToInt32(s[j]);
+            }
+            for (int i = 0; i < n; i++)
+            {
+                int sum = 0;
+                bool flag = true;
+
+                for (int j = 0; j < n; j++)
+                {
+                    if (mas[j, i] > 0) sum += mas[j, i];
+                    else
+                    {
+                        flag = false; break;
+                    }
+                }
+
+                if (flag) Console.WriteLine($"Amount {i} A number of: {sum}");
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("The matrix: ");
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    Console.Write(mas[i, j] + " ");
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine();
+            Console.WriteLine("Modified matrix: ");
+            for (int i = 0; i < n; i++)
+            {
+                var temp = mas[i, n - 2];
+                mas[i, n - 2] = mas[i, n - 1];
+                mas[i, n - 1] = temp;
+            }
+
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    Console.Write(mas[i, j]);
+                    Console.Write(" ");
+                }
+                Console.WriteLine();
+            }
+                  Console.WriteLine();
+                  Console.ReadKey();
+        }
+    }
+}
+
+
+
+
+============================================================================================================================================
+(333333333333333333333333333333333333333333333333333)
+
+using System;
+
+namespace lab_3_3
+{
+
+    // اعمل مجوعة
+    //(1) حط ارقام عشواىة من -500 ال 500 Ступенчатый массив
+
+    //(2) احسب مجموع العناصر في كل سطر Заполнить
+
+    //(3) اعرض المصفوفة Вывести
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //(1) 
+            int[][] mas = new int[5][];
+
+            mas[0] = new int[5];
+            mas[1] = new int[3];
+            mas[2] = new int[8];
+            mas[3] = new int[4];
+            mas[4] = new int[6];
+
+            for (int i = 0; i < 5; i++)
+            {
+                Random rand = new Random();
+                for (int j = 0; j < mas[i].Length; j++)
+                {
+                    mas[i][j] = rand.Next(-500, 500);
+                }
+            }
+            //(2)
+            for (int i = 0; i < 5; i++)
+            {
+                int sum = 0;
+                for (int j = 0; j < mas[i].Length; j++)
+                {
+                    sum += mas[i][j];
+                }
+                Console.WriteLine($"Line sum {i} : {sum}");
+            }
+
+            Console.WriteLine();
+
+            //(3)
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 0; j < mas[i].Length; j++)
+                {
+                    Console.Write(mas[i][j]);
+                    Console.Write(" ");
+                }
+
+                Console.WriteLine();
+            }
+        }
+    }
+}
 
