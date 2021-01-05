@@ -28,7 +28,7 @@ namespace c_from_0_to_1
 
 
 
-
+=================================================================
 
             // اله حاسبة 
 
@@ -49,7 +49,7 @@ namespace c_from_0_to_1
               Console.WriteLine("{0} / {1} = {2}",fristnumber , secondnumber, anser2);
               Console.WriteLine("{0} * {1} = {2}",fristnumber , secondnumber, anser3);*/
 
-
+=====================================================================================
 
 
 
@@ -97,7 +97,7 @@ namespace c_from_0_to_1
                 Console.WriteLine("The price to carpet  {0} by {1} room is {2}" , lange,widht,price);*/
 
 
-
+===============================================================================================================**********************************=
 
             // *
             /*
@@ -115,7 +115,7 @@ namespace c_from_0_to_1
 
             Console.WriteLine("{0} minutes is equal to {1} hours and {2} minutes", totaloftime, Hours,remainingMinutes );*/
 
-
+==========================================================================================*********************************************
 
         /*  int age;
 
@@ -138,6 +138,7 @@ namespace c_from_0_to_1
 e
 
 
+==========================================================================================
 
 // And is only true when both sides are true
             // T && T = T
@@ -172,6 +173,93 @@ e
             
     */
 
+
+=====================================================================================================
+            //if 
+
+            Console.WriteLine("Enter your year ");
+            int year = int.Parse(Console.ReadLine());
+
+           /* if (year == 1)
+            {
+                Console.WriteLine("You in the frist class cool");
+            }
+            else if (year == 2)
+            {
+                Console.WriteLine("you are not old hear ");
+            }
+            else if (year == 3)
+            {
+                Console.WriteLine("you are in 3 class");
+            }
+            else if (year == 4)
+            {
+                Console.WriteLine("you too old hear");
+            }
+            else if (year > 4)
+            {
+                Console.WriteLine("you too old");
+
+            }*/
+
+
+            //switch
+          /*  switch (year)
+            {
+                case 1:
+              
+                    {
+                        Console.WriteLine("You in the frist class cool");
+                        break;
+                    }
+                case 2:
+                
+                    {
+                        Console.WriteLine("you are not old hear ");
+                        break;
+                    }
+                case 3:
+                    {
+                        Console.WriteLine("you are in 3 class");
+                        break;
+                    }
+                case 4:
+                    {
+                        Console.WriteLine("you too old");
+                        break;
+                    }
+                default:
+                    {
+                        Console.WriteLine("You still kiding!!!!!!1!");
+                        break;
+                    }*/
+                    ==============================================================================
+                    
+                    //  Conditional and NOT Operators
+
+            //(Condition) ? true : false
+
+            int x = 50;
+            int y = 60;
+            // x الاوله معناها اني لو كان الاكس اكبر اطبع الاكس 
+            // y الواي التانية معناها اني لو كان الواي هي الكبيرة اطبعها 
+            int biggestNumber = x > y ? x : y;
+            Console.WriteLine(biggestNumber);
+
+            double testScore = 95;
+
+            Console.WriteLine((testScore >= 60) ? "pass" : "Fail");
+
+            // ! تقوم بعمل العكس
+
+
+            int myint = 5;
+            if(!(myint >= 6))
+            {
+
+            }
+            
+            ====================================================================
         }
     }
 
