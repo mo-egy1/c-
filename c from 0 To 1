@@ -252,14 +252,43 @@ e
 
             // ! تقوم بعمل العكس
 
-
-            int myint = 5;
+=*************************************************************************************************** مهممممممممممممممممممممممممممممممممممممممممممم جداااااااااااااااااا
+           int myint = 9;
             if(!(myint >= 6))
             {
-
+                Console.WriteLine("true");
+            }
+            else
+            {
+                Console.WriteLine("fals");
             }
             
-            ====================================================================
+            ====================================================================*************************************************************************************
+            
+            
+              /* write a program that prompts the user an hourly pay rate. If the value entered is less than $7.50
+             *or greater than $49.00, dispaly an error message, otherwise a message indicating that the rat is
+             * okay
+             */
+
+
+            Console.WriteLine("you need to pay by hourly rate " +"\n");
+            Console.WriteLine("Enter the payment");
+            double pay = double.Parse(Console.ReadLine());
+
+
+            if (pay < 7.50 || pay > 49.00)
+            {
+                Console.WriteLine("Erro");
+            }
+            else
+            {
+                Console.WriteLine("All is Ok");
+            }
+              
+           
+=9***********************************************************************************************************************************************************
+
         }
     }
 
