@@ -289,6 +289,101 @@ e
            
 =9***********************************************************************************************************************************************************
 
+//while loops
+            /*   int x = 0;
+               while (x < 5) // 0 1 2 3 4
+               {
+                   Console.WriteLine("hi whats app" + "dvsJJkv gG " + "dfg dag");
+                   x++;
+               }*/
+
+
+            /*  int runningTotal = 0;
+              Console.WriteLine("Enter a number, or -1 to quit");
+              int number = int.Parse(Console.ReadLine());
+
+              while (number != -1)
+              {
+                  runningTotal += number;
+                  Console.WriteLine("Enter a number, or -1 to quit");
+                  number = int.Parse(Console.ReadLine());
+
+              }
+              Console.WriteLine("The total is {0}", runningTotal);*/
+
+
+            //the defr while loop and for loop
+            //while loob******************************************************
+
+            /*  int x = 0;
+              while (x < 5) 
+              {
+                  Console.WriteLine("hi");
+                  x++;
+              }
+              // for loob****************************************************
+
+              for (int i = 0; i <5; i++)
+              {
+                  Console.WriteLine("hi");
+              }
+
+              // لوب لا تخاص 
+              for (; ; )
+              {
+                  Console.WriteLine("hi");
+              }*/
+
+
+            /*   Console.WriteLine("Enter an amount of times to print hello");
+               int amount = int.Parse(Console.ReadLine());
+
+               for (int i = 0; i < amount; i++)
+               {
+                   Console.WriteLine("Hello");
+               }
+               */
+
+            // DO while loop *********************************************************************
+
+            /*  int x = 5;
+
+              do
+              {
+                  Console.WriteLine("HI");
+              }
+              while (x > 6);*/
+
+            //******************************************************************************************************************************************
+            /*  Console.WriteLine("Do you want to play (Yes, NO)");
+              string resbond = Console.ReadLine();
+
+              if (resbond == "Yes")
+              {
+                  Console.WriteLine("ok lets play ");
+              }
+              else if (resbond == "No")
+              {
+                  Console.WriteLine("Why you dont want to paly wiht us");
+              }*/
+            //**************************************************************************************************************************************************
+
+
+            //Nested Loops   الحلقات المتداخله////////////*/**/*/*/////////////////////////
+            for (int j = 0; j < 1000000; j++)
+            {
+
+
+                for (int i = 0; i < 30; i++)
+                {
+                    Console.Write("{0,30}","G");
+                }
+                Console.WriteLine();
+            }
+
+
+
+
         }
     }
 
