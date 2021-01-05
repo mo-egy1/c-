@@ -1,0 +1,147 @@
+using System;
+using System.ComponentModel.Design;
+using System.Security.Cryptography.X509Certificates;
+//using System.Windows.Forms;
+
+namespace c_from_0_to_1
+{
+    class Program
+      {
+          static void Main(string[] args)
+          {
+            /*Console.WriteLine("What is yor name : ");
+
+
+            string name = Console.ReadLine() + "\n";
+
+
+            Console.WriteLine("HI " + name+"\n");
+
+
+            Console.WriteLine("What is your age"+ "\n");
+
+
+            int  age = int.Parse(Console.ReadLine());
+
+
+            Console.WriteLine("And my age is 19");*/
+
+
+
+
+
+            // اله حاسبة 
+
+            /*  Console.WriteLine("Enter the first number :");
+              int fristnumber = int.Parse(Console.ReadLine());
+
+              Console.WriteLine("Enter the Second number: ");
+              int secondnumber = int.Parse(Console.ReadLine());
+
+              int anser = fristnumber + secondnumber;
+              int anser1 = fristnumber - secondnumber;
+              int anser2 = fristnumber / secondnumber;
+              int anser3 = fristnumber * secondnumber;
+
+
+              Console.WriteLine("{0} + {1} = {2}",fristnumber , secondnumber, anser);
+              Console.WriteLine("{0} - {1} = {2}",fristnumber , secondnumber, anser1);
+              Console.WriteLine("{0} / {1} = {2}",fristnumber , secondnumber, anser2);
+              Console.WriteLine("{0} * {1} = {2}",fristnumber , secondnumber, anser3);*/
+
+
+
+
+
+            /*  Console.WriteLine("How you sir"+"\n");
+              Console.WriteLine("How can i help you" + "\n");
+              Console.ReadLine();
+              Console.WriteLine("\n");
+
+              Console.WriteLine("what the lange and widht that you need");
+
+              Console.WriteLine("The lange = ");
+              string lange = (Console.ReadLine());
+
+              Console.WriteLine("the widht = ");
+              string widht = (Console.ReadLine());
+
+
+              Console.WriteLine("ok sir i have your order , Do you want to know the priss");
+              int yes, no = int.Parse(Console.ReadLine());
+              */
+
+
+            /*    Console.WriteLine("How are you sir , all is OK " + "\n");
+                Console.ReadLine();
+                Console.WriteLine("How can i help you" + "\n");
+                Console.ReadLine();
+                Console.WriteLine("\n");
+
+
+                const double price_foot_squer = 55.5;
+
+
+                Console.WriteLine("what the length and widht that you need");
+
+                Console.WriteLine("The length = ");
+                double lange = double.Parse((Console.ReadLine()));
+
+                Console.WriteLine("the widht = ");
+                double widht = double.Parse((Console.ReadLine()));
+
+
+                double area = lange * widht;
+                double price = area * price_foot_squer;
+
+                Console.WriteLine("The price to carpet  {0} by {1} room is {2}" , lange,widht,price);*/
+
+
+
+
+            // *
+            /*
+             * 
+             * Writ a proggram that asks the user to enter a total amount of time in minutes only.
+             * print to the console the same amount of time in hours and minutes
+             * 
+             *
+             * 
+             */
+           /* Console.WriteLine("Enter the total of time  in minutrs only");
+            int totaloftime = int.Parse(Console.ReadLine());
+            int Hours = totaloftime / 60;
+            int remainingMinutes = totaloftime % 60;
+
+            Console.WriteLine("{0} minutes is equal to {1} hours and {2} minutes", totaloftime, Hours,remainingMinutes );*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        }
+    }
+
+} 
