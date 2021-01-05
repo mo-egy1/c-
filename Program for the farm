@@ -1,0 +1,68 @@
+
+// تابع كورس سي من 0 الي 1
+using System;
+using System.ComponentModel.Design;
+using System.Security.Cryptography.X509Certificates;
+//using System.Windows.Forms;
+
+namespace c_from_0_to_1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            /* write a program for a lawn-mowing service. The lawn-mowing season lasts 20 weeks.
+             * The weekly fee for mowing a lot under 400 square feet is $25.
+             * The fee for a lot that is 400 square feet or more, but under 600 square feet, 
+             * is $35 per week. The fee for a lot that is 600 square feet or over is $50 per week.
+             * Prompt the user for the length and width of a lawn, and then display the weekly
+             * moing fee, as wll as the total fee for the 20-week season.
+             */
+
+
+            Console.WriteLine("Enter the length and the  width " + "\n");
+            Console.WriteLine("The length = ");
+            int length = int.Parse(Console.ReadLine());
+            Console.WriteLine("\n");
+            Console.WriteLine("The width = ");
+            int width = int.Parse(Console.ReadLine());
+
+            int squareFeet = length * width;
+            int weeklyPrice;
+           
+            const int under400squr = 25;
+
+            const int from400to600 = 35;
+
+            const int from600andbiger = 50;
+
+            if (squareFeet < 400)
+            {
+                weeklyPrice = 25;
+            }
+            else if (squareFeet >= 400 && squareFeet < 600)
+            {
+                weeklyPrice = 35;
+            }
+
+           /* else if (squareFeet >= 600)
+            {
+                weeklyPrice = 50;
+            }*/
+
+            //or 
+
+            else
+            {
+                weeklyPrice = 50;
+            }
+
+            Console.WriteLine("The weekly fee is {0}", weeklyPrice);
+            Console.WriteLine("The 20 week season price is {0}", weeklyPrice * 20 );
+        }
+
+
+
+    }
+}
