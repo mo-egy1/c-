@@ -1,0 +1,32 @@
+using System;
+using System.ComponentModel.Design;
+using System.Security.Cryptography.X509Certificates;
+//using System.Windows.Forms;
+
+namespace c_from_0_to_1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+
+            //Nested Loops   الحلقات المتداخله////////////*/**/*/*/////////////////////////
+            for (int j = 0; j < 1000000; j++)
+            {
+
+
+                for (int i = 0; i < 30; i++)
+                {
+                    Console.Write("{0,30}","G");
+                }
+                Console.WriteLine();
+            }
+        }
+
+
+
+    }
+}
+
+ 
