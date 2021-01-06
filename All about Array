@@ -1,0 +1,359 @@
+using System;
+using System.ComponentModel.Design;
+using System.Security.Cryptography.X509Certificates;
+//using System.Windows.Forms;
+
+namespace Arrey
+
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Array
+
+            /*  int myInt = 5;
+              int myInt = 5;
+              int myInt = 5;
+              int myInt = 5;
+              int myInt = 5;
+              int myInt = 5;
+              int myInt = 5;
+              int myInt = 5;
+              int myInt = 5;
+              = */
+
+            // كلهم اشكال مختلفة لمصفوفات 
+
+            /*   int[] myArray = new int[3];
+               myArray[0] = 5;
+               myArray[1] = 6;
+               myArray[2] = 7;
+
+
+               int[] myArray1 = new int[3] { 5, 6, 7 };
+               int[] myArray2 = new int[] { 55, 6, 7 };
+               int[] myArray3 = { 5, 6, 7 };
+
+
+               Console.WriteLine(myArray2[0]);*/
+
+
+
+
+
+
+
+
+            // using Loops with Arrays
+
+
+
+            /*     int[] grades = { 45, 65, 78 , 53,34,23,4234,235325,12,323,56,123,52
+                 ,543,23,123,34,234,12,45,23};*/
+
+
+            /*grades[0] += 3;
+            grades[1] += 3;
+            grades[2] += 100;
+            grades[3] += 3;*/
+
+
+            // for loops  احسن و اقوي 
+
+            /*for (int i = 0; i < grades.Length; i++)
+             {
+                 grades[i] += 1000;
+                 Console.WriteLine(grades[i]);
+             }
+            */
+
+
+
+
+
+
+
+
+
+
+            // يقرار المصفوفة بالعكس + انه بيف 3 **********************************************************
+
+          //  int[] grades = { 10, 20, 30, 40, 50, 60 };
+
+            // يقوم هذا الكود بطباعت المصفوفة عادي + انه بيزود عليهم 3
+
+          /*  for (int i = 0; i < grades.Length; i++)
+            {
+               grades[i] += 3;
+                Console.WriteLine(grades[i]);
+            }*/
+
+
+
+
+            //(1)    //يقوم هذا الكود بعرص اخر رقم في المصفوفة+ انة بيزود 3 علي هذا الرقم 
+            /*  for (int i = grades.Length -1; i < grades.Length; i++)
+              {
+                  grades[i] += 3;
+                  Console.WriteLine(grades[i]);
+              }*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            /*  (2)         // يقوم هذا الكود بعرض اخر 3 ارقام في المصفوفه + انه بيزود عليهم 3
+                       Console.WriteLine("********************************************************");
+
+                       for (int i = grades.Length - 3; i < grades.Length; i++)
+                       {
+                           grades[i] += 3;
+                           Console.WriteLine(grades[i]);
+                       }**/
+            // يقوم هذا الكود بعرض اخر 3 ارقام في المصفوفه + انه بيزود عليهم 3
+            Console.WriteLine("********************************************************");
+
+
+
+
+
+
+
+
+
+
+
+            // (3)  
+
+            // يقوم هذا الكود بعكس المصفوفة + انه بيضيف عليهم 3 
+
+            /*      for (int i = grades.Length - 1; i >=0; i--)
+              {
+                  grades[i] += 3;
+                  Console.WriteLine(grades[i]);
+              }*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            // foreach sample يطبع كل عناصر المصفوفة 
+            // لا يمكن تغير المصفوفة او الترتيب 
+
+            /*  foreach (int score in grades)
+              {
+                  Console.WriteLine(score);
+              }*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+            // فديو جديد34  ***********************************************************************************************************
+
+            // Searching an Array Using Loops  كيف ننظر في المصفوفة و افعل كذا 
+
+            //  string[] students = new string[4]; او 
+
+            /*    string[] students = {"Ali" , "Ahmed" , "sara" , "noura"};
+                int[] grades = { 77, 56, 32, 45 };
+
+                Console.WriteLine("Enter students name to search for ");
+                string studentsName = Console.ReadLine();// sam //لازم اتححق كل اسم فالازم اعمل loop
+
+                bool contains = false;
+                int studentGrade = 0; 
+                for (int i = 0; i < students.Length; i++)
+                {
+                    if (studentsName == students[i])
+                    {
+                        contains = true;
+                        studentGrade = grades[i];
+                    }
+                }
+                if (contains == true)
+                {
+                    Console.WriteLine("The student is in the class");
+                    Console.WriteLine("The student grade is {0}",studentGrade);
+                }
+                else
+                {
+                    Console.WriteLine("The student is not in the class");
+                }*/
+
+            // هذا الكود اذا اردت ان يتفقد كل اسم موجود في المصفوفة حتي يجد الاسم المطلوب 
+
+
+            /*    for (int i = 0; i < students.Length; i++)
+                {
+                    if (studentsName == students[i])
+                    {
+                        Console.WriteLine("Found");
+                    }
+                    else
+                    {
+                        Console.WriteLine("NOT found ");
+                    }
+                }*/
+
+
+
+
+
+
+            //35 فديو جديد /***********************************************************************************************************************************
+            // Binarysearch
+            // Useful Array Methods
+            // اهم 3 مصفوفات 
+
+            //(1)
+            /*  int[] myArray = { 10, 13, 15, 20, 30, 40, 50 };
+                 Console.WriteLine("Enter number to check if it exeists");
+                 int number = int.Parse(Console.ReadLine());
+
+                 int answer = Array.BinarySearch(myArray, number);
+
+                 if (answer < 0)
+                 {
+                     Console.WriteLine("The number does not exist ");
+                 }
+                 else
+                 {
+                     Console.WriteLine("THE number position in the Array is {0}", answer);
+                 }*/
+
+
+
+
+
+            // (2)
+            //sorting an array
+            // نوع اخر 
+            // ترتيب المصفوفة Sort 
+
+            /* int[] myArray = { 100, 90, 50, 60 };
+             Array.Sort(myArray);
+             for (int i = 0; i < myArray.Length; i++)
+             {
+                 Console.WriteLine(myArray[i]);
+             }*/
+
+
+
+            //(3) 
+            // Reverse 
+
+            // عكس المصفوقة 
+            /* int[] myArray = { 45, 70, 54, 90 };
+             Array.Reverse(myArray);
+             for (int i = 0; i < myArray.Length; i++)
+             {
+                 Console.WriteLine(myArray[i]);
+             }*/
+
+
+            //*******************************مهمممممممممممممممممممممممممممممممممممممممم جدااااااااااااااااااااااااااااااا ******************************
+            // المصفوفات ذات البعدين 
+            //Multidimensional Arrays مصفوفات متعدة الابعاد 
+
+
+            // int[] myArray = { 5, 6, 7 };
+
+            //5 6 7
+            //6 7 5
+            //7 6 5
+
+
+            // int[,] = مصوفة ثناية البعد
+            // int[,,]=  مصفوفة ثلاثية البعد
+            // int[,,,,,,,]  وهكذه
+
+           // int[,] myArray = new int[3, 4];
+
+            //****
+            //****
+            //****
+
+            /*   myArray[0, 0] = 5;
+               myArray[0, 1] = 6;
+               myArray[0, 2] = 7;
+               myArray[0, 3] = 8;
+
+
+               myArray[1, 0] = 5;
+               myArray[1, 1] = 6;
+               myArray[1, 2] = 7;
+               myArray[1, 3] = 8;
+
+
+               myArray[2, 0] = 5;
+               myArray[2, 1] = 6;
+               myArray[2, 2] = 7;
+               myArray[2, 3] = 8;
+
+               //== الطريقة المختصرة 
+
+
+              // int[,] myA = { { 5, 6, 7 }, { 5, 6, 7 }, { 5, 6, 7 } };
+
+               for(int i=0; i<3; i++)
+               {
+                   for (int j =0; j < 4; j++)
+                   {
+                       Console.Write(myArray[i,j]);
+                   }
+                   Console.WriteLine();
+               }
+               */
+
+
+
+            int[][] myArray = new int[3][];
+            myArray[0] = new int[4] { 5, 7, 9, 1 };
+            myArray[1] = new int[10] { 1, 2, 3, 4, 5, 6, 7,8, 9,10 };
+            myArray[2] = new int[2] { 9, 1 };
+
+            for (int i = 0; i < 3; i++)
+            {
+                for(int j = 0; j <myArray[i].Length; j++)
+                {
+                    Console.WriteLine(myArray[i][j]);
+                }
+                Console.WriteLine();
+            }
+
+        }
+
+
+    }
+}
