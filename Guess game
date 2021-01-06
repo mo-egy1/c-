@@ -57,4 +57,66 @@ namespace c_from_0_to_1
 
     }
 }
+**************************************************************************************************************************************************************************
 
+  ///////////////////////////////////////////////////////////The same program but using loobs ////////////////////////////////////////////////////////////
+  
+  using System;
+using System.ComponentModel.Design;
+using System.Security.Cryptography.X509Certificates;
+//using System.Windows.Forms;
+
+namespace c_from_0_to_1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            Random randomGenerator = new Random();
+            int randomNumber = randomGenerator.Next(1, 11);
+           // Console.WriteLine(randomNumber);  // دا لو عاوز تعرف رقم التخمين كام ممكن تشيله 
+
+
+            Console.WriteLine("Guess the random number : " + "\n");
+            int random = int.Parse(Console.ReadLine());
+
+            //   Console.WriteLine("The random number was  {0}", randomNumber);
+
+            int userGuess;
+            int amountofGuesses = 0;
+
+            do
+            {
+                Console.WriteLine("Geuess the random number");
+                userGuess = int.Parse(Console.ReadLine());
+
+                if (userGuess > randomNumber)
+                {
+                    Console.WriteLine("Your guess was too high");
+                }
+                else if (userGuess < randomNumber)
+                {
+                    Console.WriteLine("Your guess was too low");
+                }
+                else 
+                {
+                    Console.WriteLine("Your guess is ok ");
+                }
+                amountofGuesses++;
+
+            } while (userGuess != randomNumber);
+            Console.WriteLine("you guessed {0} ", amountofGuesses);
+
+
+        }
+
+
+
+
+
+    }
+}
+
+
+  
