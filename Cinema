@@ -1,0 +1,16 @@
+Console.WriteLine("Enter your age ");
+            int age = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("what is the moving rating");
+            char rating = char.Parse(Console.ReadLine());
+
+
+
+            if ((age <= 12 || age >= 65) && rating == 'G')
+            {
+                Console.WriteLine("Discount applies");
+            }
+            else
+            {
+                Console.WriteLine("Ther is no discount for you xaxaxaxax");
+            }
