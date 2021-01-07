@@ -1,0 +1,128 @@
+using System;
+
+namespace UseEvent
+{
+     
+    class Program
+    {
+        
+        static void Main()
+        {
+           
+            Bank myBank = new Bank(1, -10);
+            myBank.Show();  
+
+              
+            Bank myBank2 = new Bank(2, 199);
+            myBank2.Show();
+
+             
+            myBank2.TakeOfMony(200);
+
+            
+            Console.ReadLine();
+        }
+    }
+
+    class Bank
+    {
+        private int personID;    
+        private decimal bank_account;   
+
+        
+       
+        
+        public delegate void MyDelegate
+            (object user, SecurytyMonitor ment);
+
+       
+        public event MyDelegate OnStop;
+
+
+         
+        public Bank(int personID, decimal bank_account)
+        {
+
+            
+            if (bank_account < 0)
+            {
+
+                SecurytyMonitor sc = new SecurytyMonitor("Sum that can be deposited" +
+                      "must not be less than $ 0");
+             
+
+              
+                sc.DoEvent(this);
+
+                OnStop(this, sc);
+            }
+            else
+            {
+                this.personID = personID;
+                this.bank_account = bank_account;
+            }
+        }
+
+         
+        public void Show()
+        {
+            Console.WriteLine("Unique ID: {0};\nBank account: {1};\n",
+                this.personID, this.bank_account);
+        }
+
+         public void TakeOfMony(decimal money)
+        {
+
+        
+      
+        
+         
+            if (money > this.bank_account)
+            {
+                 
+                SecurytyMonitor sc = new SecurytyMonitor("The maximum amount you can withdraw" + "from your account is:"
+                 + this.bank_account);
+
+                
+                sc.DoEvent(this);
+
+                 
+                OnStop(this, sc);
+            }
+            else            
+                this.bank_account = bank_account - money;
+        }
+    }
+
+
+    class SecurytyMonitor : EventArgs
+    {
+        private string message;  
+
+        
+        public string Message
+        {
+            get { return message; }
+        }
+
+          
+        public SecurytyMonitor(string msg)
+        {
+            message = msg;
+        }
+
+       
+        public void DoEvent(Bank b)
+        {
+            b.OnStop += new Bank.MyDelegate(Display);
+        }
+
+        
+        public void Display(object o, SecurytyMonitor sc)
+        {
+            Console.WriteLine(sc.Message);
+        }
+    }
+
+
+}
