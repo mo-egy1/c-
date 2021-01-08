@@ -206,3 +206,323 @@ namespace Lab_11
 
 
 }
+****************************************************************************************************************************************************************************
+
+using System;
+using System.Collections.Generic;
+
+
+namespace Lab_11
+{
+    class Program
+    {
+        
+
+        static void Main(string[] args)
+        {
+
+            // انشاء فئة جديده 
+            College coll = new College();
+
+            Console.WriteLine("IN This college now:");
+
+
+            coll.AddBacalaver("Ali" ,5);
+            coll.AddMegistr("Ahmed", 4);
+            coll.AddAspirant("salah", 3);
+            coll.output();
+
+            Console.WriteLine("Choose one: \n0 - Repeat me\n1 - Add to colloge (name - Chours)\n2");
+
+            int Change = 1;
+
+            while (Change != 8)
+            {
+                Change = Convert.ToInt32(Console.ReadLine());
+
+                if (Change < 0 | Change > 8)
+                {
+                    Console.WriteLine("this is not the rally name");
+                    continue;
+                }
+
+                switch (Change)
+                {
+
+                    case 0:
+                        Console.WriteLine("Choose one: \n0 - Repeat me\n1 - Add to colloge (name - Chours)\n2");
+                        break;
+
+                    case 1:
+                        Console.WriteLine("Bacalaver: ");
+                        string str = Console.ReadLine();
+                        string[] words = str.Split(' ') ;
+                        coll.AddBacalaver(words[0], Convert.ToInt32(words[1]));
+                        break;
+
+                    case 2:
+                        Console.WriteLine("Master: ");
+                        string str2 = Console.ReadLine();
+                        string[] words2 = str2.Split(' ');
+                        coll.AddMegistr(words2[0], Convert.ToInt32(words2[1]));
+                        break;
+
+                    case 3:
+                        Console.WriteLine("Bacalaver: ");
+                        string str3 = Console.ReadLine();
+                        string[] words3 = str3.Split(' ');
+                        coll.AddAspirant(words3[0], Convert.ToInt32(words3[1]));
+                        break;
+
+                    case 4:
+                        Console.WriteLine("LUCK student: ");
+                        coll.Delete(Convert.ToInt32(Console.ReadLine()));
+                        break;
+
+
+                    case 5:
+                        Console.WriteLine("Change name: ");
+                        string str5 = Console.ReadLine();
+                        string[] words5 = str5.Split(' ');
+                        coll.ChangeName(Convert.ToInt32(words5[0]), words5[1]);
+                        break;
+
+                    case 6:
+                        Console.WriteLine("Change Chours: ");
+                        string str6 = Console.ReadLine();
+                        string[] words6 = str6.Split(' ');
+                        coll.ChangeChorus(Convert.ToInt32(words6[0]), Convert.ToInt32(words6[1]));
+                        break;
+
+
+                    case 7:
+                        coll.output();
+                        break;
+                }
+            }
+
+            
+ 
+
+        }
+    }
+
+    class College
+    {
+       
+        List<student> students = new List<student>();
+
+        public void AddBacalaver(string name, int Chorus)
+        {
+
+            students.Add(new Bacala(name, Chorus));
+        }
+
+        
+
+
+
+        public void AddMegistr(string name, int Chorus)
+        {
+            students.Add(new Megr(name, Chorus));
+        }
+
+
+
+
+
+        public void AddAspirant(string name , int Chorus)
+        {
+            students.Add(new Aspi(name, Chorus));
+        }
+
+
+
+        public void ChangeName (int index, string name)
+        {
+            students[index].changeName(name);
+        }
+
+        public void ChangeChorus (int index, int Chorus)
+        {
+            students[index].ChangeChorus(Chorus);
+        }
+
+        //ChangeChorus
+        //ChangeChorus
+        public void Delete(int index)
+        {
+            students.RemoveAt(index);
+        }
+
+
+     
+
+
+        // الناتج النهاىي output 
+        
+
+        public void output()
+        {
+            Console.WriteLine("****************");
+
+            for (int i = 0; i < students.Count; i++)
+            {
+                students[i].output();
+            }
+
+
+            Console.WriteLine("****************");
+        }
+    }
+
+
+    // class  فصل لنوع الطالب كاكل 
+    abstract class student
+    {
+
+        string name;
+         int Chorus;
+
+        public student()
+        {
+            this.name = "Noname";
+            this.Chorus = 1;
+        }
+
+        public student(string name, int Chorus)
+        {
+            this.name = name;
+            this.Chorus = Chorus;
+        }
+
+        public int Chours
+        {
+            get { return Chorus; }
+            set { Chorus = value; }
+        }
+
+
+
+        public string changeName(string name)
+        {
+            this.name = name;
+            return this.name;
+        }
+     
+        public abstract int ChangeChorus(int value);
+
+        public void output()
+        {
+            string str = $"{this}";
+            Console.WriteLine($"{str.Remove(0,5)} \t Famull: {name} \t  Chours: {Chorus}");
+
+
+        }
+    }
+
+
+    class Bacala : student
+    {
+        public Bacala(string name, int Chorus) : base(name, Chorus)
+        {
+            if (Chorus > 0 & Chorus < 5)
+            {
+                this.Chours = Chours;
+            }
+            else
+            {
+                Chours = 4;
+            }
+        }
+
+
+
+        
+        public override int ChangeChorus(int value)
+        {
+           if (value > 0 & value < 5)
+            {
+                Chours = value;
+            }
+            else
+            {
+                Chours = 4;
+                return Chours;
+            }
+        }
+
+       
+
+    }
+
+    class Megr : student
+    {
+        public Megr(string name, int Chorus) : base(name, Chorus)
+        {
+            if (Chorus > 0 & Chorus < 3)
+            {
+                this.Chours = Chours;
+            }
+            else
+            {
+                Chours = 2;
+            }
+        }
+        
+
+
+
+        public override int ChangeChorus(int value)
+        {
+            if (value > 0 & value < 3)
+            {
+                Chours = value;
+            }
+            else
+            {
+                Chours = 2;
+                return Chours;
+            }
+        }
+
+
+        
+
+    }
+
+    class Aspi : student
+    {
+        public Aspi(string name, int Chours) : base(name, Chours)
+        {
+            if (Chours > 0 & Chours < 4)
+            {
+                this.Chours = Chours;
+            }
+            else
+            {
+                Chours = 3;
+            }
+        }
+
+
+        public override int ChangeChorus(int value)
+        {
+            if (value > 0 & value < 4)
+            {
+                Chours = value;
+                
+            }
+            else
+            {
+                Chours = 3;
+                return Chours;
+            }
+        }
+
+
+     
+
+    }
+
+}
