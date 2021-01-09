@@ -526,3 +526,248 @@ namespace Lab_11
     }
 
 }
+**************************************************************************************************************************************************************************
+
+using System;
+using System.Collections.Generic;
+using System.IO.Pipes;
+
+namespace Lab_11_2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            College Coll = new College();
+
+
+            // اساكي الطلاب الي في االكلية 
+            Coll.AddBacalaver("Ali 2");
+            Coll.AddMegistr("Ahmed 3");
+            Coll.AddAspirant("Noura 4");
+
+
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.Write("In the College Now..... \n ");
+            Console.WriteLine("*********************************");
+            Console.WriteLine("Bacaclaver\t" + "Ali" );
+            Console.WriteLine("Megiste\t\t"    + "Ahmed");
+            Console.WriteLine("Aspirant\t"   + "Noura");
+            Console.WriteLine("*********************************");
+            
+
+            for (int i = 0; i == 0; i = 0)
+            {
+                Console.BackgroundColor = ConsoleColor.Black;
+                Console.ForegroundColor = ConsoleColor.Red;
+
+               
+                // دي الحاجات المطلوب عملها 
+                Console.WriteLine("\nChoose an action\n" +
+                    "\n(1)_add an object \n"+
+                    "(2)_Remove an object \n"+
+                    "(3)_Display \n"+
+                    "(4)_Make changes \n"+
+                    "(5)_Exit from the program");
+
+
+                Console.BackgroundColor = ConsoleColor.Black;
+                Console.ForegroundColor = ConsoleColor.Yellow;
+
+                int str = Convert.ToInt32(Console.ReadLine());
+
+               
+
+                if (str == 5)
+                {
+                    Console.WriteLine("Go out (_Exit_)");
+                }
+
+                if (str == 1)
+                {
+                    Console.WriteLine("Choose the academic stage: \n" +
+                        "(1)_Bacalaver\n" +
+                        "(2)_AddMegistr\n" +
+                        "(3)_AddAspirant");
+
+
+                    string num = Console.ReadLine();
+
+                    switch (num)
+                    {
+                        case "1":
+                            Console.WriteLine("You have chosen Bacalaver");
+                            Console.Write("The Name");
+                            string name = Console.ReadLine();
+                            Bacala b = new Bacala(name);
+                            Coll.AddBacalaver(name);
+                            break;
+
+
+                        case "2":
+                            Console.WriteLine("You have chosen Megistr ");
+                            Console.Write("The Name:  ");
+                            name = Console.ReadLine();
+                            Megi m = new Megi(name);
+                            Coll.AddMegistr(name);
+                            break;
+
+                        case "3":
+
+                            Console.WriteLine("You have chosen Aspirant ");
+                            Console.Write("The Name:  ");
+                            name = Console.ReadLine();
+
+                            Aspir a = new Aspir(name);
+                            Coll.AddAspirant(name);
+                            break;
+
+
+                        default:
+                            Console.Write("The name is not hear ");
+                            break;
+
+
+
+                    }
+
+                }
+
+                if (str == 2)
+                {
+                    Console.WriteLine("Choose the number that you want to see");
+                    Console.Write("number =");
+                    int num = Convert.ToInt32(Console.ReadLine());
+                    Coll.remove(num - 1);
+                }
+
+
+
+                if (str == 3)
+                {
+                    Coll.output();
+                }
+
+                if (str == 4)
+                {
+                    Console.WriteLine("Choose the number that you want to see");
+                    Console.Write("Number = ");
+                    int num = Convert.ToInt32(Console.ReadLine());
+                    int n = (num - 1);
+
+                    Console.WriteLine("Choose the Name that you want to see");
+                    string name = Console.ReadLine();
+                    Coll.changeFiled(n, name);
+                }
+
+                Console.WriteLine();
+
+
+            }
+        }
+    }
+}
+
+
+// اول فصل الي خهي الكلية 
+class College
+{
+    List<student> students = new List<student>();
+
+    // عمل اضافة
+    public void AddBacalaver(string name)
+    {
+        students.Add(new Bacala(name));
+    }
+
+
+    public void AddMegistr(string name)
+    {
+        students.Add(new Megi(name));
+    }
+
+    public void AddAspirant(string name)
+    {
+        students.Add(new Aspir(name));
+    }
+    // هعمل تغير 
+    public void changeFiled(int index, string name)
+    {
+        students[index].change(name);
+    }
+    //Removal
+    //هعمل ازاله 
+     
+    public void remove(int index)
+    {
+        students.RemoveAt(index);
+    }
+
+
+    // الناتج النعاىي
+
+    public void output()
+    {
+        foreach(var i in students)
+        {
+            Console.WriteLine($"{i.Name}");
+        }
+    }
+}
+
+
+// فصل جديد ل الطالب
+ abstract class student
+{
+    private string name;
+
+    public string Name
+    {
+        get { return name; }
+        set { name = value; }
+    }
+
+    public student(string name)
+    {
+        this.name = name;
+    }
+
+    public abstract string change(string name );
+    
+}
+
+class Bacala : student
+{
+    public Bacala(string name) : base(name) { }
+
+    // هنا تغير 
+    public override string change(string name)
+    {
+        Name = name;
+        return Name;
+    }
+}
+
+
+class Megi : student
+{
+    public Megi(string name): base(name) { }
+
+    public override string change(string name)
+    {
+        Name = name;
+        return Name;
+    }
+}
+
+class Aspir : student
+{
+    public Aspir(string name): base(name) { }
+
+    public override string change(string name)
+    {
+        Name = name;
+        return Name;
+    }
+}
