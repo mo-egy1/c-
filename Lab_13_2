@@ -1,0 +1,87 @@
+using System;
+using System.IO;
+
+namespace Lab_13_2
+{
+    // delegate ادخل نوع مصفوفة من نوع دليتا 
+    delegate void Sendout(object end, Car Rocket);
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Camera poto = new Camera();
+            poto.Warinig += Trafficpolice.polic;
+            poto.SpeedMeasurement("Mahmoud Hassan ", "ferrari", "EuroBrun 324", 500);
+
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.Clear();
+            Console.WriteLine("Read The File.....");
+            Console.WriteLine("\n");
+
+
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.ForegroundColor = ConsoleColor.Red;
+
+
+        }
+    }
+    // انشي فصل لنوع سيارة الي هي هتتخط السرعة المسموحة بيها  
+    class Car
+    {
+        public string Name, Model, Nomer;
+
+        public Car(string name, string model, string nomer)
+        {
+
+
+            this.Name = name;
+            this.Model = model;
+            this.Nomer = nomer;
+
+        }
+
+
+    }
+    // انشي فصل لنوع كاميرا الي هتصور السيارة و هي بتخالف السرعة و تبعتها لظابط
+    class Camera
+    {
+        // اقصي سرعة لسيارة
+        private int maxSpeed = 120;
+
+        public event Sendout Warinig;
+        // قياس السرعة لسيارة 
+        public void SpeedMeasurement(string name, string model, string nomer, int Normalspeed)
+        {
+            if (Normalspeed > maxSpeed)
+            {
+                Warinig.Invoke(this, new Car(name, model, nomer));
+            }
+        }
+    }
+
+    // احفظ التحذير في رسالة و ابعتها لظابط علشان يعطي المخالفه 
+    class Trafficpolice
+    {
+        public static void polic(object end, Car Rocket)
+        {
+
+
+            // دي المسار الي بيتم فيه حفظ المخالفه 
+            StreamWriter sw = new StreamWriter(@"D:\File\output.txt");
+
+            sw.WriteLine("Traffic violation");// مخالفة مارورية  Нарушение правил движения
+            sw.WriteLine($"The Name of the person who owns the car : {Rocket.Name}");
+            sw.WriteLine($"Model Car                               :{Rocket.Model}");
+            sw.WriteLine($"Number Car                              :{Rocket.Nomer}");
+            sw.Close();
+
+
+        }
+    }
+
+
+
+
+
+}
