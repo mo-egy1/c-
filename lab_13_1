@@ -1,0 +1,79 @@
+using System;
+using static System.Math;
+
+namespace lab_13_1
+{
+    public class Program
+    {
+
+        
+        // الاداة الي بتربط الدالتين ببعض 
+        delegate double F(double x);
+
+        static void Main(string[] args)
+        {
+            // الارقام 
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.Clear();
+            Console.WriteLine(ddd(3, 25, 10));
+
+
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.ForegroundColor = ConsoleColor.Red;
+
+        }
+
+        static double ddd(double x, double y, double P)
+        {
+            // متغير من نوع دابل 
+            double m;
+            double dx;
+
+            //уравнений المعادلة
+            //применить лямбда-выражение  lambda بتطبيق نوع طريقة باند
+            //(=>)
+            F f = Q => 5 * Cos(x) / 16 + 22 * (Math.Pow(x - 9, 2) / x + Cos(x) * 7);
+
+            if (f(x) == 0)
+            {
+                Console.WriteLine("X = 0");
+            }
+
+            if (f(y) == 0)
+            {
+                Console.WriteLine("Y = 0");
+            }
+
+
+            while (y - x > P)
+            {
+                //в основе которого заложен численный метод деления отрезка пополам دي تعتمد عي تقسيم المطقع الي نصفين 
+                //С помощью делегата задается функция левой части уравнения  يتم استخدام المفوض لتعين الوظيفة علي الجانب الايسر من المعادلة    dx = (y- x) / 2;  
+
+                dx = (y - x) / 2;
+                m = x + dx;
+                if (Math.Sign(f(x)) != Math.Sign(f(m)))
+                {
+                    x = m;
+                }
+
+                else
+                {
+                    x = m;
+                }
+
+            }
+
+            return x;
+
+
+
+
+
+
+
+
+        }
+    }
+}
