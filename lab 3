@@ -9,24 +9,29 @@ namespace lab_3_1
         static void Main(string[] args)
         {
             // номер 8
+
+            // اول حاجة ادخل الرقم 5 و بعدين ادخل 5 عناصر 
             //(1)вещественных элементов    مصفوفة احادية البعد تتكون من عناصر حقيقية
 
             int n;
 
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Enter the number of items");
             n = Int32.Parse(Console.ReadLine());
             double[] Arr = new double[n];
 
             //меньших С اقل من
             double c;
-           
+
             double sum = 0;
             double In = 0;
-          
 
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("Enter array elements");
 
-            for ( int i =0; i < n; ++i)
+            for (int i = 0; i < n; ++i)
             {
                 Arr[i] = Double.Parse(Console.ReadLine());
 
@@ -39,23 +44,28 @@ namespace lab_3_1
             }
 
             //sum 
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.ForegroundColor = ConsoleColor.Red;
 
             for (int i = Convert.ToInt32(++In); i < n; ++i)
-               {
+            {
                 sum += Convert.ToDouble(Arr[i]);
             }
 
-        
+
 
             Console.WriteLine("The sum = " + sum + "\n");
 
 
             //copy Array
+            // اطبع المصفوفة 
 
-            Console.WriteLine("The Print array = "+"\n");
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("The Print array = " + "\n");
             foreach (int i in Arr)
             {
-               
+
                 Console.Write(i + " \n ");
 
             }
@@ -66,7 +76,6 @@ namespace lab_3_1
         }
     }
 }
-
 
 
 
