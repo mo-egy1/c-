@@ -1,0 +1,301 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Reflection.PortableExecutable;
+
+namespace Lab_12_1
+{
+
+    
+    interface Icompare
+    {
+        int Compare(Object obj1 , object obj2);
+
+    }
+
+
+    interface IEnumerable
+    {
+        IEnumerator GetEnumerator();
+    }
+
+
+
+    interface IComparable
+    {
+        int Comparable(object obj);
+    }
+
+
+
+    interface IConoeable
+    {
+       
+        object Clone();
+    }
+
+
+
+
+
+    class ShipComparer : IComparer<Ship>
+    {
+        public int Compare(Ship ts1, Ship ts3)
+        {
+            if (ts1.Capacity > ts3.Capacity)
+            {
+                return 1;
+            }
+
+            else if (ts1.Capacity < ts3.Capacity)
+            {
+                return -1;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+    }
+
+    class Ship : IComparable<Ship>, ICloneable
+    {
+        public string Type { get; set; }
+
+        public string Name { get; set; }
+
+        public int Capacity { get; set; }
+
+        public int price { get; set; }
+
+        public Ship()
+        {
+            Type = "Type";
+            Name = "Name";
+            Capacity = 0;
+            price = 0;
+        }
+
+        public Ship(string Type, string Name, int Caracity, int price)
+        {
+            this.Type = Type;
+            this.Name = Name;
+            this.Capacity = Capacity;
+            this.price = price;
+        }
+
+
+
+
+        public int Compare(Ship ts1, Ship ts3)
+        {
+            if (ts1.Capacity > ts3.Capacity)
+            {
+                return 1;
+            }
+
+            else if (ts1.Capacity < ts3.Capacity)
+            {
+                return -1;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+        public int CompareTo(Ship p)
+        {
+            return this.price.CompareTo(p.price);
+        }
+
+
+        public object Clone()
+        {
+            return new Ship
+            {
+                Type = this.Type,
+                Name = this.Name,
+                Capacity = this.Capacity,
+                price = this.price
+
+            };
+
+        }
+        /////////////////
+        
+
+        ////////////////
+    }
+
+
+    class Port : Ship
+    {
+        public Port()
+        {
+
+        }
+
+        // المسوة التي ترينا المينا بتاعنا
+        public void ConsolLeWL(Ship[] a)
+        {
+            foreach (Ship p in a)
+            {
+                Console.Write($"Type: {p.Type} \t Name: {p.Name} \t  Capacity: {p.Capacity}  \t Price: {p.price}");
+            } 
+        }
+
+       public void PriceSort(Ship[] a)
+        {
+            Console.WriteLine("Sort array by price: ");
+            Array.Sort(a);
+            foreach(Ship p in a)
+            {
+                Console.WriteLine($"Type: {p.Type} \t Name: {p.Name} \t  Capacity: {p.Capacity}  \t Price: {p.price}");
+            }
+        }
+
+        public void CapacitySort(Ship[] a)
+        {
+            Console.WriteLine("Sort array by Capacity: ");
+            Array.Sort(a, new ShipComparer());
+            foreach(Ship p in a)
+            {
+                Console.WriteLine($"Type: {p.Type} \t Name: {p.Name} \t  Capacity: {p.Capacity}  \t Price: {p.price}");
+            }
+        }
+
+        public void Clon(Ship[] a)
+        {
+            Console.WriteLine("Enter What do you Want to Copy : ");
+
+            int ind = Convert.ToInt32(Console.ReadLine());
+            Ship p1 = a[ind - 1];
+            Ship p2 = (Ship)p1.Clone();
+            Console.WriteLine("Change the Name: ");
+            p2.Name = /*Convert.ToInt32(*/Console.ReadLine();
+            Console.WriteLine($"Type: {p1.Type} \t Name: {p1.Name} \t Caracity: {p1.Capacity } \t price: {p1.price}");
+            Console.WriteLine($"Type: {p2.Type} \t Name: {p2.Name} \t Caracity: {p2.Capacity } \t price: {p2.price}");
+        }
+    }
+
+    class linkory : IEnumerable
+    {
+        string[] ships = { "AlMahrosa", "Alsalam", "TheNoname" ,"sasf adgag", "hskl akl akaa"};
+        public IEnumerator GetEnumerator()
+        {
+            return ships.GetEnumerator();
+        }
+    }
+
+
+
+
+    class prgraming
+    {
+
+
+
+        static void Main(string[] args)
+        {
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Type: Ship        Name:  AlNaser      Caracity:34525      price: 5000000  ");
+            Console.WriteLine("Type: Ship2       Name:  Morse        Caracity:43621      price: 130000000 ");
+            Console.WriteLine("Type: Ship3       Name:  Siss         Caracity:30         price: 80000    \n\n ");
+
+           
+            Console.ForegroundColor = ConsoleColor.Red;
+
+            Ship s1 = new Ship("Ship", "AlNaser", 34525, 5000000);
+            Ship s2 = new Ship("Ship2", "Morse", 43621, 130000000);
+            Ship s3 = new Ship("Ship3", "Siss", 30 , 80000);
+            Ship[] routert = new Ship[] { s1, s2, s3 };
+            Port p = new Port();
+
+
+            
+
+            int namber = 0;
+            while (namber < 5)
+            {
+                Console.WriteLine("Choose Anything:  \n1) ICloneable \n2) IComparable \n3) IComparer \n4) IEnumerable \n5) Exit the program");
+               
+                Console.ForegroundColor = ConsoleColor.White;
+                namber = Convert.ToInt32(Console.ReadLine());
+
+                
+                switch (namber)
+                {
+                    
+
+                    
+                    case 1:
+                        p.Clon(routert);
+
+                        Console.WriteLine("\n");
+                        break;
+                    case 2:
+
+                       
+                        Console.ForegroundColor = ConsoleColor.Blue;
+
+                        p.CapacitySort(routert);
+                        Console.WriteLine("\n");
+                        break;
+                        
+
+                    case 3:
+
+                       
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        p.PriceSort(routert);
+                        Console.WriteLine("\n");
+                        break;
+                        
+                    case 4:
+
+                        
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
+                        linkory llll = new linkory();
+                        foreach (var v in llll)
+                        {
+                            Console.WriteLine(v);
+                            Console.WriteLine("\n");
+                        }
+                        break;
+                        
+                    default:
+                        if (namber != 5)
+                        {
+                            Console.WriteLine("You do not see that ther is no more than 5");
+
+                        }
+                        Console.WriteLine("\n");
+                        break;
+
+                }
+            }
+
+            if (namber == 5)
+            {
+              
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Go Out now");
+                Console.WriteLine("\n");
+            }
+
+
+
+        }
+
+
+
+    }
+
+
+
+
+
+}
