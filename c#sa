@@ -1,0 +1,242 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+using System.Text.RegularExpressions;
+
+namespace ASD_exercise_3
+{
+
+    class Node<T> : IComparable where T : IComparable 
+    {
+        //creating a Node element, i.e. our tree. What is our tree made of? Node. The IComparable 
+        //interface allows us to implement a comparison to determine whether we should go left or right.
+
+        public T Data { get; private set; } // our tree has the data itself
+        public Node<T> Left { get; private set; } // first, left subtree   لأولاً ،  الشجرة الفرعية
+        public Node<T> Right { get; private set; } // second, right subtree الثانية ، الشجرة الفرعية الصحيحة
+
+        public Node(T data) // constructor - البناء
+        {
+            Data = data;
+        }
+        public Node(T data, Node<T> left, Node<T> right) // another constructor واحد تاني 
+        {
+            Data = data;
+            Left = left;
+            Right = right;
+        }
+
+        public void Add(T data)
+        {
+            var node = new Node<T>(data);
+            if (node.Data.CompareTo(Data) == -1) 
+            {
+                //إذا كانت القيمة المقارنة أكبر من الوسيطة ، فستكون 1 
+                //، إذا كانت القيمة المقارنة أقل من الوسيطة ، إذن - 1
+                if (Left == null)
+                {
+                    Left = node;
+                }
+                else
+                {
+                    Left.Add(data);
+                }
+            }
+            else
+            {
+                if (Right == null)
+                {
+                    Right = node;
+                }
+                else
+                {
+                    Right.Add(data);
+                }
+            }
+        }
+
+        public int CompareTo(object obj)
+        {
+            if (obj is Node<T> item) 
+            {
+                //type checking. If it was possible to cast obj to Node<T>,
+                //then the value will be placed in item.
+                return Data.CompareTo(obj);
+            }
+            else
+            {
+                throw new ArgumentException("Type mismatch");
+            }
+
+        }
+        public override string ToString()
+        {
+            return Data.ToString();
+        }
+    }
+
+    class Tree<T> //tree class
+        where T : IComparable
+    {
+        public Node<T> Root { get; private set; } // tree root
+        public int Count { get; private set; } // amount of elements
+
+        public void Add(T data)// add operation اضافة عملية
+        {
+            if (Root == null) // إذا كان الجذر فارغًا ، نضيفه if the root is empty, then we add it
+            {
+                Root = new Node<T>(data);
+                Count = 1;
+                return;
+            }
+
+            Root.Add(data);
+            Count++;
+        }
+
+
+        public List<T> Preorder()
+        {
+            if (Root == null)
+            {
+                return new List<T>();
+            }
+
+            return Preorder(Root);
+        }
+
+        public List<T> Inorder()
+        {
+            if (Root == null)
+            {
+                return new List<T>();
+            }
+
+            return Inorder(Root);
+        }
+
+        public List<T> Postorder()
+        {
+            if (Root == null)
+            {
+                return new List<T>();
+            }
+
+            return Postorder(Root);
+        }
+
+        // prefix (direct) bypass - تجاوز البادئة (المباشرة) префиксный (прямой) обход
+        private List<T> Preorder(Node<T> node)
+        {
+            var list = new List<T>();
+
+            if (node != null)
+            {
+                list.Add(node.Data);
+
+                if (node.Left != null)
+                {
+                    list.AddRange(Preorder(node.Left));
+                }
+
+                if (node.Right != null)
+                {
+                    list.AddRange(Preorder(node.Right));
+                }
+            }
+            return list;
+        }
+
+        // infix (symmetric) bypass   إنفكس (متماثل) الالتفافية  инфиксный (симметричный) обход
+        private List<T> Inorder(Node<T> node)
+        {
+            var list = new List<T>();
+
+            if (node != null)
+            {
+                if (node.Left != null)
+                {
+                    list.AddRange(Inorder(node.Left));
+                }
+
+                list.Add(node.Data);
+
+                if (node.Right != null)
+                {
+                    list.AddRange(Inorder(node.Right));
+                }
+            }
+            return list;
+        }
+
+        //  postfix (reverse) traversal اجتياز postfix (عكسي) постфиксный (обратный) обход
+        private List<T> Postorder(Node<T> node)
+        {
+            var list = new List<T>();
+
+            if (node != null)
+            {
+                if (node.Left != null)
+                {
+                    list.AddRange(Postorder(node.Left));
+                }
+
+                if (node.Right != null)
+                {
+                    list.AddRange(Postorder(node.Right));
+                }
+
+                list.Add(node.Data);
+            }
+            return list;
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var tree = new Tree<int>();
+
+            Console.Write("Enter whole numbers separated by spaces: ");
+            string text = Console.ReadLine();
+            int countText = text.Split().Length;  // عدد الكلمات في النص
+            string text_temp = Regex.Replace(text, "[.?!)(,:]", ""); // إزالة الأحرف الدخيلة (مع ترك الكلمات والمسافات فقط) ، إذا لزم الأمر. يلقي أيضا إلى الأحرف الصغيرة для удаления дубликатов слов
+            string[] words_temp = text_temp.Split(' '); // break into words
+
+            int[] myArr = new int[countText]; // تمرير العناصر إلى مجموعة من الأرقام passing elements
+            for (int i = 0; i < countText; i++)
+            {
+                myArr[i] = Convert.ToInt32(words_temp[i]);
+                tree.Add(myArr[i]);
+            }
+
+            Console.Write("\nPrefix (direct) bypass: ");
+            foreach (var item in tree.Preorder())
+            {
+                Console.Write(item + " ");
+            }
+            Console.WriteLine();
+
+            Console.Write("\nInfix (symmetric) traversal: ");
+            foreach (var item in tree.Inorder())
+            {
+                Console.Write(item + " ");
+            }
+            Console.WriteLine();
+
+            Console.Write("\nPostfix (reverse) traversal: "); //عكسي 
+            foreach (var item in tree.Postorder())
+            {
+                Console.Write(item + " ");
+            }
+
+            Console.ReadKey();
+
+        }
+    }
+}
